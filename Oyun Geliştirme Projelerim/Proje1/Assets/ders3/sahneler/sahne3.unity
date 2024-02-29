@@ -697,6 +697,8 @@ MonoBehaviour:
   dogruCevap: 
   asikkidogruluk: {fileID: 1177674623}
   bsikkidogruluk: {fileID: 641133364}
+  sayacText: {fileID: 710459746}
+  sayac: 10
 --- !u!4 &961595393
 Transform:
   m_ObjectHideFlags: 0
