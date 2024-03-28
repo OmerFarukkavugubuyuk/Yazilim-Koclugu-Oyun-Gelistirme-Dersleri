@@ -21,8 +21,10 @@ public class ders5kod : MonoBehaviour
     public bool oyunDevamEdiyorMu;
 
     public GameObject karakter;
+    public GameObject kamera;
 
     Vector3 eksenler;
+    Vector3 eksenlerkamera;
 
     public Rigidbody fizikSistemi;
 
@@ -50,6 +52,7 @@ public class ders5kod : MonoBehaviour
     {
        
         eksenler=karakter.transform.position;
+        eksenler=kamera.transform.position;
         oyunDevamEdiyorMu = true;
         skor = 0;
         skorText.text = "skorun = "+ skor;
@@ -64,31 +67,21 @@ public class ders5kod : MonoBehaviour
     }
 
 
-
-
-
-    /* 
-     
-        if (other.gameObject.CompareTag("zemin"))
-        {
-            Debug.Log("oyun bitti yandýn");
-            skor = 0;
-            karakter.transform.position = new Vector3(0, 2, -10);
-
-        }
-     
-     */
     public void hareket() {
 
         eksenler= karakter.transform.position;  
+        eksenlerkamera= kamera.transform.position;
+        eksenlerkamera.z += Time.deltaTime * hareketHýzý;
         eksenler.z += Time.deltaTime *hareketHýzý ;
-        karakter.transform.position = eksenler;     
+        karakter.transform.position = eksenler;    
+        kamera.transform.position= eksenlerkamera;
+        
 
 
     }
     public void zipla()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetMouseButtonDown(0))
         {
             fizikSistemi.AddForce(Vector3.up *ziplamaHýzý, ForceMode.Impulse);
             seskutusu.PlayOneShot(fýstsesi);

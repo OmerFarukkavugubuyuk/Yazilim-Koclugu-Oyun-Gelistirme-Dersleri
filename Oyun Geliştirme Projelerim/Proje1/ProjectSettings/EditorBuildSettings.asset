@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/ders5/sahnelerim/sahne.unity
+    guid: 31d8b8a37b2f3974ebd0156064e7e721
   m_configObjects: {}
