@@ -5,29 +5,13 @@ using UnityEngine.UI;
 
 public class kodlar : MonoBehaviour
 {
-    // Start is called before the first frame update
-
-    /// <summary>
-    /// saçma sapan biþey oldu baþlamadan tekrar bak
-    /// 
-    /// </summary>
-
-    public double hýz;
-   
-    public GameObject kamera;
-    public GameObject arac;
-
-    public Rigidbody fiziksistemi;
-
-    Vector3 eksen;
-    Vector3 eksenarac;
+    public int hiz;
+    public Animator animasyonlar;
+    public Text metin;
                    
 
     void Start()
     {
-        eksen=kamera.transform.position;
-
-        eksenarac = arac.transform.position;
 
         
 
@@ -37,52 +21,95 @@ public class kodlar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float moveVertical = Input.GetAxis("Vertical");
-        ileri();
-        saga();
-        sola();
-        geri();
-        Vector3 eksenaracc = transform.forward * moveVertical * 5f;
-        //hareket();
+        hareket();
     }
 
+    public void hareket() {
+        float xEkseni = Input.GetAxis("Horizontal");
+        float zEkseni = Input.GetAxis("Vertical");
 
+        Vector3 hareketsistemi = new Vector3(xEkseni, 0.0f, zEkseni);
 
-    void geri() {
-        if (Input.GetKeyUp(KeyCode.DownArrow))
+        this.transform.position += hareketsistemi * hiz * Time.deltaTime;
+
+        if (Input.GetKey(KeyCode.W))
         {
-            
+            animasyonlar.SetBool("ileri yürüme",true);
+            metin.text = "W tuþuna basýldý";
+
         }
-    }
-    
-
-    void sola()
-    {
-        if (Input.GetKey (KeyCode.LeftArrow))
+        else {
+            animasyonlar.SetBool("ileri yürüme", false);
+        }
+        if (Input.GetKey(KeyCode.D))
         {
-            fiziksistemi.AddForce(Vector3.left*2);
+            animasyonlar.SetBool("saða don", true);
+            metin.text = "D tuþuna basýldý";
+        }
+        else
+        {
+            animasyonlar.SetBool("saða don", false);
+        }
         
-        }
-
-    }
-    void saga()
-    {
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.A))
         {
-            fiziksistemi.AddForce(Vector3.right*2);
+            animasyonlar.SetBool("sola don", true);
+            metin.text = "A tuþuna basýldý";
         }
-
-    }
-
-
-    void ileri() { 
-    
-        if (Input.GetKey(KeyCode.UpArrow))
+        else
         {
-            
-
-            
+            animasyonlar.SetBool("sola don", false);
         }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            animasyonlar.SetBool("gerý", true);
+            metin.text = "S tuþuna basýldý";
+        }
+        else
+        {
+            animasyonlar.SetBool("gerý", false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            animasyonlar.SetBool("yumruk", true);
+            metin.text = "SOL FARE tuþuna basýldý";
+        }
+        else
+        {
+            animasyonlar.SetBool("yumruk", false);
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            animasyonlar.SetBool("zýpla", true);
+            metin.text = "BOÞLUK tuþuna basýldý";
+        }
+        else
+        {
+            animasyonlar.SetBool("zýpla", false);
+        }
+        if (Input.GetKey(KeyCode.Mouse1))
+        {
+            metin.text = "SAÐ FARE tuþuna basýldý";
+            animasyonlar.SetBool("tekme",true);
+        }
+        else
+        {
+            animasyonlar.SetBool("tekme",false);
+        }
+        if (Input.GetKey(KeyCode.X))
+        {
+            metin.text = "X tuþuna basýldý";
+            animasyonlar.SetBool("xTekme", true);
+        }
+        else
+        {
+            animasyonlar.SetBool("xTekme", false);
+        }
+
+
     }
+
 
 }
