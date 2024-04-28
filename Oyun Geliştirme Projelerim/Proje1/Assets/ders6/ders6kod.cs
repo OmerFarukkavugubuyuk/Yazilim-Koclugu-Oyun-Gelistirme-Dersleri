@@ -8,6 +8,9 @@ public class ders6kod : MonoBehaviour
     public float hiz = 10f;
     public Animator animasyonlar;
 
+
+    public int derece;
+
     public Text metin;
 
     void Start()
@@ -19,6 +22,7 @@ public class ders6kod : MonoBehaviour
     void Update()
     {
         ObjeHareket();
+
         
 
 
@@ -46,22 +50,19 @@ public class ders6kod : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.A))
         {
-            animasyonlar.SetBool("sola don", true);
+            this.transform.Rotate(0, -derece * Time.deltaTime, 0);
             metin.text = "A tuþu basýlýyor";
         }
-        else
-        {
-            animasyonlar.SetBool("sola don", false);
-        }
+        
         if (Input.GetKey(KeyCode.D))
         {
             metin.text = "D tuþu basýlýyor";
-            animasyonlar.SetBool("saða don", true);
+
+            this.transform.Rotate(0, derece * Time.deltaTime, 0);
         }
-        else
-        {
-            animasyonlar.SetBool("saða don", false);
-        }
+       
+        
+
 
 
     }
