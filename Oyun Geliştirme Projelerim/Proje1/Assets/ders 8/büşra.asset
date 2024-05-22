@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f36d971f9c6a42f47947d1dbf585b9bd, type: 3}
+  m_Name: "b\xFC\u015Fra"
+  m_EditorClassIdentifier: 
+  isim: "b\xFC\u015Fra"
+  "T\xFCr": "ok\xE7u"
+  can: 100
+  hasar: 5
+  "\xF6d\xFClPuan\u0131": 15
+  "h\u0131z": 10
+  renk: {fileID: 2100000, guid: 49a3eac01f311d34582c80a21bbeefea, type: 2}
+  ses: {fileID: 0}
+  gorsel: {fileID: 21300000, guid: 3b889dc883704554bb5bdf1890d49f72, type: 3}
